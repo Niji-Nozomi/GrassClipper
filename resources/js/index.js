@@ -273,7 +273,9 @@ async function closeFirstTimePopup() {
 }
 
 async function runInstallScript() {
-  Neutralino.os.execCommand(`${NL_CWD}/scripts/install.cmd "${NL_CWD}"`)
+  const script = NL_OS === 'Windows' ? 'install.cmd':'install.sh'
+
+  Neutralino.os.execCommand(`${NL_CWD}/scripts/${script} "${NL_CWD}"`)
 
   closeFirstTimePopup()
 }
